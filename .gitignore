@@ -1,0 +1,39 @@
+# Node.js dependencies
+node_modules/          # Node.js modules directory
+package-lock.json      # Node.js package lock file
+yarn.lock              # Yarn package lock file
+
+# Build output directories
+dist/                  # Angular or general build directory
+build/                 # React or general build directory
+
+# Temporary files
+*.log                  # Log files
+*.tmp                  # Temporary files
+*.swp                  # Swap files created by text editors
+
+# System files
+.DS_Store              # macOS Finder files
+Thumbs.db              # Windows thumbnail cache
+
+# Environment variables
+.env                   # Environment variables file
+.env.local             # Local environment variables
+.env.*.local           # Specific environment variable files
+
+# Coverage reports
+coverage/              # Code coverage reports (e.g., Jest, Istanbul)
+
+# IDE settings
+.vscode/               # Visual Studio Code settings directory
+.idea/                 # JetBrains IDE settings directory
+
+# Generated files
+*.map                  # Source map files for debugging
+
+# Ignoring compiled scripts for TypeScript (if applicable)
+*.tsbuildinfo          # TypeScript incremental build info
+
+# Miscellaneous
+npm-debug.log*         # npm debug log files
+config.json            # Generic configuration file
