@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Land Area Converter | Gujarat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../resume/img/MaulikPatel.jpg" type="image/png">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Lobster Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    /* Page layout and background */
+    body {
+      margin: 0;
+      padding: 2.5rem 0 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #a5d6a7, #e6ee9c, #fff59d);
+    }
+
+    /* Main container */
+    .converter-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 0 1.25rem rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    /* Title styling */
+    .title-line {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Reference section */
+    .reference-line {
+      font-size: 0.85rem;
+      text-align: center;
+      margin: 1rem 0;
+      padding: 0.5rem;
+      background: #ffe0b2;
+      border: 2px solid #ff9800;
+      border-radius: 0.375rem;
+    }
+
+    /* Result table styling */
+    .styled-table {
+      border: 2px solid #2e7d32;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+
+    .styled-table td {
+      padding: 0.5rem;
+      background: #f1f8e9;
+    }
+
+    .styled-table tr:first-child td {
+      background: #c8e6c9;
+      font-weight: bold;
+    }
+
+    /* Output value styling */
+    .guntha {
+      color: #1b5e20;
+      font-weight: bold;
+    }
+
+    .vigha {
+      color: #33691e;
+      font-weight: bold;
+    }
+
+    /* Animation for table reveal */
+    @keyframes fadeSlideDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-slide {
+      animation: fadeSlideDown 2s ease-out;
+    }
+
+    /* Footer styling */
+    footer {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+      width: 100%;
+    }
+
+    .signature {
+      font-family: 'Lobster', cursive;
+      font-size: 1.1rem;
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Converter container -->
+  <div class="converter-box">
+    <!-- Title -->
+    <div class="title-line">Land Area Converter | જમીન ક્ષેત્રફળ રૂપાંતર</div>
+
+    <!-- Reference example -->
+    <div class="reference-line">
+      As per <b>VF-7</b> SURVEY NO DETAILS (<b>ગા.ન. ૭</b> ની વિગતો મુજબ)<br>
+      Total Area (H.Are.SqMt.) (કુલ ક્ષેત્રફળ હે.આરે.ચોમી.) : <strong>2 - 64 - 41</strong>
+    </div>
+
+    <!-- Input form -->
+    <form id="areaForm">
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-md-4">
+          <label for="hectare" class="form-label">Hectare (હેક્ટર)</label>
+          <input type="text" id="hectare" class="form-control" inputmode="numeric" pattern="\d*" maxlength="6" placeholder="2" required>
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="are" class="form-label">Are (આરે)</label>
+          <input type="text" id="are" class="form-control" inputmode="numeric" pattern="\d*" maxlength="6" placeholder="64" required>
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="sqmt" class="form-label">Sq. Meter (ચોમી)</label>
+          <input type="text" id="sqmt" class="form-control" inputmode="numeric" pattern="\d*" maxlength="6" placeholder="41" required>
+        </div>
+      </div>
+      <button type="submit" id="convertBtn" class="btn btn-primary w-100">Convert (રૂપાંતર કરો)</button>
+    </form>
+
+    <!-- Result table -->
+    <div id="resultTable" class="styled-table text-center" style="display: none;">
+      <table class="table mb-0">
+        <tbody>
+          <tr>
+            <td colspan="2">Total Area (કુલ ક્ષેત્રફળ)</td>
+          </tr>
+          <tr>
+            <td>H.Are.SqMt.<br>(હે.આરે.ચોમી.)</td>
+            <td><strong id="outputArea">---</strong></td>
+          </tr>
+          <tr>
+            <td>Guntha (ગુંઠા)</td>
+            <td class="guntha" id="outputGuntha">---</td>
+          </tr>
+          <tr>
+            <td>Vigha (વિઘા)</td>
+            <td class="vigha" id="outputVigha">---</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>© 2025 Designed & Developed by <a href="https://www.linkedin.com/in/maulik-leo" target="_blank" class="signature" style="text-decoration: none;">Maulik Patel</a></footer>  
+
+  <!-- jQuery logic -->
+  <script>
+    $(function () {
+      // Allow only digits
+      $('#hectare, #are, #sqmt').on('keypress', e => {
+        if (!/[0-9]/.test(e.key)) e.preventDefault();
+      }).on('paste', e => e.preventDefault());
+
+      // Handle form submission
+      $('#areaForm').on('submit', function (e) {
+        e.preventDefault();
+
+        const $btn = $('#convertBtn');
+        $btn.prop('disabled', true).text('Processing...');
+
+        setTimeout(() => {
+          const h = parseInt($('#hectare').val()) || 0;
+          const a = parseInt($('#are').val()) || 0;
+          const s = parseInt($('#sqmt').val()) || 0;
+
+          const total = (h * 98.84) + (a * 0.98) + (s * 0.0099);
+
+          $('#outputArea').text(`${h} - ${a} - ${s}`);
+          $('#outputGuntha').text(total.toFixed(2));
+          $('#outputVigha').text((total / 24).toFixed(2));
+
+          $('#resultTable')
+            .hide()
+            .addClass('fade-slide')
+            .fadeIn();
+
+          $btn.prop('disabled', false).text('Convert (રૂપાંતર કરો)');
+        }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>
