@@ -1,0 +1,4 @@
+Bootstrap Version: 5.3.6
+Release Date: May 5, 2025.
+Source: https://github.com/twbs/bootstrap/releases/download/v5.3.6/bootstrap-5.3.6-dist.zip
+Notes: Local Bootstrap setup for offline use.
