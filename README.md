@@ -1,7 +1,7 @@
 # My Repository: Resume and Learning Projects
 
 ## Overview
-Welcome to my repository! I am a **Software Engineer** with **6 years of experience** in developing **Java and J2EE Technologies-based Web and Enterprise Applications**. I am highly enthusiastic and flexible when it comes to learning and embracing new technologies.
+Welcome to my repository! I am a **Software Engineer** with **more than 6 years of experience** in developing **Java and J2EE Technologies-based Web and Enterprise Applications**. I am highly enthusiastic and flexible when it comes to learning and embracing new technologies.
 
 This repository serves as a centralized hub for:
 - Managing my **resume**
@@ -25,7 +25,7 @@ Here's a summary of my technical skills:
 ### Version Control Systems (VCS)
 - **Tortoise SVN**
 - **Git** *(Basic)*
-- **Bitbucket*
+- **Bitbucket**
 
 ## Purpose of the Repository
 This repository is a personal project to:
