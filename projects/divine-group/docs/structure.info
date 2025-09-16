@@ -1,0 +1,57 @@
+project/
+├── index.html          # Main HTML file
+├── assets/             # Folder for assets like images, fonts, etc.
+│   ├── images/         # Subfolder for images
+│   ├── fonts/          # Subfolder for fonts
+├── css/                # Folder for CSS files
+│   └── style.css       # Main stylesheet
+├── js/                 # Folder for JavaScript files
+│   └── script.js       # Main JavaScript file
+├── libs/               # Folder for third-party libraries or frameworks
+│   ├── jquery.js       # Example: Library file
+│   ├── bootstrap.css   # Example: Framework file
+├── README.md           # Project description and setup instructions
+
+
+ORANGE	: #EE7E30 	(Primary)
+RED		: #C72D35	(Secondary)
+
+To achieve code reusability in a static HTML website for elements like headers, footers, and navigation bars, you can use techniques such as HTML template files with server-side includes or JavaScript. Here's how you can implement it:
+
+### 1. **Using HTML with Server-Side Includes (SSI)**
+If you're using a server that supports SSI (like Apache), you can save common elements as separate HTML files and include them dynamically:
+- Create separate files for the header (`header.html`), footer (`footer.html`), and navigation bar (`navbar.html`).
+- In your main HTML file (`index.html`), use include statements like:
+```html
+<!-- Example for including header -->
+<!--#include virtual="header.html" -->
+```
+This requires enabling SSI on your server.
+
+### 2. **Using JavaScript**
+If you're working entirely client-side, JavaScript can be used to dynamically load reusable components:
+- Save your header, footer, and nav bar as separate HTML files.
+- Use JavaScript to fetch and insert those files into specific placeholders on your page:
+```html
+<!-- Example for the main HTML file -->
+<div id="header"></div>
+<div id="navbar"></div>
+<div id="footer"></div>
+
+<script>
+  function loadComponent(id, file) {
+    fetch(file)
+      .then(response => response.text())
+      .then(data => document.getElementById(id).innerHTML = data);
+  }
+  
+  loadComponent("header", "header.html");
+  loadComponent("navbar", "navbar.html");
+  loadComponent("footer", "footer.html");
+</script>
+```
+
+### 3. **Using Static Site Generators**
+If you're open to tools, static site generators like Jekyll or Hugo enable reusable components with templating. They allow you to define layouts and partials for common elements, which can be reused across pages.
+
+Let me know if you'd like more guidance on any of these approaches! 🧩
